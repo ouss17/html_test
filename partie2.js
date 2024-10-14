@@ -3,7 +3,7 @@
 import { calcAge } from "./modules/utils.js";
 
 function greet(username) {
-  console.log(`Hello ${username}`);
+  // console.log(`Hello ${username}`);
 }
 // greet("Tom");
 // greet("Erik");
@@ -79,49 +79,119 @@ const describePopulation = (country, population) => {
 /////////////////ARRAYS////////////////////
 
 let populations = [30, 60, 40, 14];
-console.log(populations.length === 4);
+// console.log(populations.length === 4);
 let pourcentages = [];
 for (let i = 0; i < populations.length; i++) {
   const percentage = percentageOfWorld1(populations[i]);
   pourcentages.push(percentage);
 }
-console.log(pourcentages);
+// console.log(pourcentages);
 
-console.log(calcAge(40));
+// console.log(calcAge(40));
 
-///////////////////////////////
+//////////////CALCUL ARRAYS/////////////////
 
-// Import stylesheets
-import "./style.css";
+let neighbours = ["China", "Mongolia", "Kazakhstan"];
 
-// Write Javascript code!
-const appDiv = document.getElementById("app");
-appDiv.innerHTML = `<h1>Fundamentals - Part2 #1</h1>`;
+neighbours.push("Utopia");
+neighbours.pop();
 
-const calcAverage = (score1, score2, score3) => {
-  let average = (score1 + score2 + score3) / 3;
-  console.log(average);
-  return (score1 + score2 + score3) / 3;
+if (!neighbours.includes("Germany"))
+  // console.log("Probably not a central European Country :D");
+
+  neighbours[neighbours.indexOf("Mongolia")] = "Suède";
+// console.log(neighbours);
+
+////////////////////OBJECT////////////////////////
+
+const myCountry = {
+  country: "France",
+  capital: "Paris",
+  language: "french",
+  population: 60,
+  neighbour: ["Spain", "Belgium", "Italia"],
+
+  describe: function () {
+    console.log(
+      `${this.country} has ${this.population} million ${this.language}-speaking people, ${this.neighbour.length} neighbouring countries and a capital called ${this.capital}`
+    );
+  },
+
+  checkIsland: function () {
+    neighbours.length > 0 ? (this.isIsland = false) : (this.isIsland = true);
+  },
+};
+myCountry.population += 2;
+myCountry["population"] -= 2;
+// console.log(
+//   `${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbour.length} neighbouring countries and a capital called ${myCountry.capital}`
+// );
+
+///////////////////FUNC IN OBJECT//////////////////
+
+const hedi = {
+  firstName: "Hedi",
+  lastName: "Rivas",
+  birthYear: 1991,
+  job: "teacher",
+  friends: ["Michael", "Peter", "Steven"],
+  hasDriversLicence: true,
+  bestFriend: "Michael",
+  calcAge: function () {
+    this.age = 2024 - this.birthYear;
+    return this.age;
+  },
+  getSummary: function () {
+    return `${this.firstName} is a ${this.calcAge()} years old ${
+      this.job
+    }, and he ${
+      !this.hasDriversLicence ? "doesn't have" : "has"
+    } a driver's licence.`;
+  },
 };
 
-let scoreDolphins = calcAverage(44, 23, 71);
-let scoreKoalas = calcAverage(65, 54, 49);
+// console.log(hedi.getSummary());
+myCountry.checkIsland();
+// console.log(myCountry);
 
-const checkWinner = (avgDolphins, avgKoalas) => {
-  if (avgDolphins > avgKoalas && avgDolphins > avgKoalas * 2) {
-    console.log(`Les Dolphins ont gagné`);
-  } else if (avgKoalas > avgDolphins && avgKoalas > avgDolphins * 2) {
-    console.log(`Les Koalas ont gagné`);
-  } else if (avgKoalas === avgDolphins) {
-    console.log(`Les 2 équipes sont à égalité`);
-  } else {
-    console.log(`Aucune des 2 équipes n'a gagné`);
+//////////////////////// FOR ///////////////////////////
+
+// for (let i = 1; i <= 50; i++) {
+//   console.log(`number ${i} is currently voting`);
+// }
+
+/////////////////// LOOPING ARRAY //////////////////
+
+// let populations = [30, 60, 40, 14];
+let pourcentages2 = [];
+for (let i = 0; i < populations.length; i++) {
+  const percentage = percentageOfWorld1(populations[i]);
+  pourcentages2.push(percentage);
+}
+
+// console.log(pourcentages2);
+
+////////////////// LOOPING BACKWARD /////////////////
+
+let listOfNeighbours = [
+  ["Canada", "Mexico"],
+  ["Spain"],
+  ["Norway", "Sweden", "Russia"],
+];
+for (let i = 0; i < listOfNeighbours.length; i++) {
+  for (let j = 0; j < listOfNeighbours[i].length; j++) {
+    // console.log(`Neighbour : ${listOfNeighbours[i][j]}`);
   }
-};
+}
 
-checkWinner(scoreDolphins, scoreKoalas);
+/////////////////// WHILE LOOP ///////////////////
 
-scoreDolphins = calcAverage(85, 54, 41);
-scoreKoalas = calcAverage(23, 34, 27);
+let percentage3 = [];
+let indexWhile = 0;
+while (indexWhile < populations.length) {
+  const percentage = percentageOfWorld1(populations[indexWhile]);
+  percentage3.push(percentage);
+  indexWhile++;
+}
 
-checkWinner(scoreDolphins, scoreKoalas);
+// console.log(percentage3);
