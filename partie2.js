@@ -142,10 +142,8 @@ const hedi = {
     return this.age;
   },
   getSummary: function () {
-    return `${this.firstName} is a ${this.calcAge()} years old ${
-      this.job
-    }, and he ${
-      !this.hasDriversLicence ? "doesn't have" : "has"
+    return `${this.firstName} is a ${this.age} years old ${this.job}, and he ${
+      !this.hasDriversLicence ? "has not" : "has"
     } a driver's licence.`;
   },
 };
@@ -155,6 +153,21 @@ myCountry.checkIsland();
 // console.log(myCountry);
 
 //////////////////////// FOR ///////////////////////////
+
+const test = ["test", 123, false, ["&", "b", "c"], 2222 - 1234];
+let objecct = {};
+for (let i = 0; i < test.length; i++) {
+  objecct[test[i]] = typeof test[i];
+}
+
+console.log(objecct);
+
+const types = [];
+
+for (let i = 0; i < test.length; i++) {
+  console.log(test[i]);
+  types.push(typeof test[i]);
+}
 
 // for (let i = 1; i <= 50; i++) {
 //   console.log(`number ${i} is currently voting`);
